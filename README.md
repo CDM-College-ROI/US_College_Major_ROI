@@ -24,16 +24,15 @@ October 2022
 
 * [Project Description](#project-description)
 * [Project Goal](#project-goal)
-* [Process](#process-in-brief)
+* [Analysis Process](#process-in-brief)
 * [Steps to Reproduce](#steps-to-reproduce)
-* [Data Dictionary](#data-dictionary)
 * [Exploratory Questions](#exploratory-questions)
-  * [What are the most common words in READMEs?](#1-what-are-the-most-common-words-in-readmes)
-  * [Does the length of README vary by programming language?](#2-does-the-length-of-the-readme-vary-by-programming-language)
-  * [Do different programming languages use a different number of unique words?](#3-do-different-programming-languages-use-a-different-number-of-unique-words)
-  * [Are there any words that uniquely identify a programming language?](4-are-there-any-words-that-uniquely-identify-a-programming-language)
+  * [5 Year Return on Investment](#5-year-return-on-investment)
+  * [Creating and Modeling Clusters](#creating-and-modeling-clusters)
+* [Clusters]
 * [Modeling](#modeling)
 * [Recommendations & Next Steps](#recommendations--next-steps)
+* [Data Dictionary](#data-dictionary)
 * [Project Delivery](https://www.canva.com/design/DAFLfrYbwyA/8DMEYjMXzZQ65GgmgiGtrQ/view?utm_content=DAFLfrYbwyA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 ----
 ### **Project Description**
@@ -134,9 +133,117 @@ We explore how potential variables within the data produce certain return on inv
 4. We recommend cloning this repository in its entirety to best reproduce this analysis and the subsequent findings. If there are any challenges in doing so - please contact any of the author of this study for troubleshooting assistance. 
 
 
+----
+
+### **Exploratory Questions and Hypothesis Testing**
+
+<br>
+
+#### **5 Year Return on Investment**
+<br>
+
+**Is there a statistically significant difference among the following examined variables and students' 5-year return on investment (ROI)?**
+
+* Undergraduate college majors
+* College share of first-time, full-time entering students
+* Public/private/foreign controlled institutions
+* Average university faculty salary
+* Full-time student tuition revenue
+* College US geographical regions
+* College admission rates
+
+<br>
+
+#### **Creating and Modeling Clusters**
+
+<br>
+
+1. Is there a statistically significant difference in the share of first-time, full-time entering college students and faculty salaries?
+
+2. Is there a statistically significant difference across college admission rate levels and students with family income bracket 48-75K? 
+
+3. Is there a statistically significant difference in undergraduate majors and university share of part-time students?
+
+4. Is there a statistically significant difference between the levels of admitted SAT scores and the number of undergraduate students with federal pell-grants and loans?
+
+5. Is there a statistically significant difference across US geographical regions and institution full-time tuition revenue?
+
+6. Is there a statistically significant difference between among the institution control types and college admission rates?
 
 ----
 
+#### **Clusters**
+
+* **College Major Cluster**
+When undergraduate majors like Archeology, Geology, and Forestry are grouped into higher major classifications like "Environment and Natural Resources" we find there are statistical differences across these majors share of part-time students. When we combine these unique major variables with university share of part-time students, the K-means algorithm can accurately capture these variables with some degree of accuracy.    
+
+* **Admissions Rate Cluster**
+College admission rates are often seen as an indicator of their academic competitiveness and the number of applications it may receive and ultimately the applicants they select. We thought that these rates could make for an interesting variable when classified among a spectrum from "above-average-acceptance" to "very-competitive."
+
+Additionally, when tested against colleges' student population with median family incomes of 48-75K in 2019, we identified that there were statistical differences among these groups. 
+
+* **Institution Control Cluster**
+This cluster involved pairing the control of an institution meaning whether the college was a profit, public, or foreign college and their respective admission rates. 
+
+The K-means algorithm returned the greatest cluster coefficient score at three distinguishing clusters. We believe this was consistent with the imbalance of observations among the four institution control types. We felt that while initially exploring this cluster, the unsupervised K-means algorithm also did a great job at visually predicting and labeling actual observations.
+
+* **College Region Cluster**
+We wanted to measure if geographical differences could help us in determining future student 5-year ROI. Across 8 continental US regions and 1 foreign territory region, we found that there was also distinct difference among these region's fill-time tuition revenue. When paired together this made-up our college region cluster which we introduced in modeling.
+
+* **First-time Student Cluster**
+The basis of the first-time student cluster comes from a national college average of first-time, full-time entering students. We binned unique university percentage of their first-time, full-time entering students based on where they fell on this national average. These classifications ranged from "below average" to "highest average." 
+
+To introduce another unique and statistically significant ROI variable, we looked at this classification in relation to university average faculty salaries which also proved statistically significant. 
+
+* **SAT Score Clusters**
+
+Like college admission rates, SAT scores required by colleges can span a relative spectrum. For this variable, we used the national average SAT score of ~1050 for US colleges to create distinct classifications. These classes varied by either "average", "above average", "competitive", or "very competitive" and were generated based on a minimum and maximum score found in the dataset.
+
+We measured these variables in relation to colleges' student population with federal pell grants and/or loans. The results of our findings proved that the population size of these students across colleges were statistically different across college's required SAT score.
+
+It's important to also note that on average - universities that required "very competitive" SAT scores also had the highest population of students with either federal pell grants and/or loans. We believe that a future iteration of this study warrants further analysis of this finding and what, if any additional implications there may be for attending a college that requires a relatively competitive SAT score.
+
+-----
+
+### **Cluster Modeling**
+
+<br>
+
+**<u>Tested Linear Algorithms w/Principal Component Dimensionality Reduction</u>**
+
+* Linear Regression (OLS)
+* Lasso Lars (Least Angle Regression)
+* Tweedie Regression (Generalized Linear Model)
+
+
+#### **<u>Model Evaluation on RMSE</u>**
+
+<br>
+
+| Model     | Train     | Validate     |
+|----       |----       |----          |
+| OLS w/PCA | 0.39      | 0.39         |
+| GLM w/PCA | 0.39      | 0.40         |
+| LassoLars w/PCA | 0.41 | 0.41        |
+
+
+
+<u>**``Performance of OLS Linear Regression w/PCA Through Test Dataset``**</u>
+
+| PCA OLS Model | RMSE          |Relative % Difference  |
+|----           |----           |----                   |
+| Baseline      | 0.41          | -                     |
+| Train         | 0.39          | 0.05                  |
+| Validate      | 0.39          | 0.0                   |
+| Test (final)  | 0.39          | 0.0                   |
+
+----
+
+### **Recommendations & Next Steps**
+
+
+
+----
 ### **Data Dictionary**
 
 <br>
@@ -193,83 +300,6 @@ We explore how potential variables within the data produce certain return on inv
 <br>
 
 \* *multiple rows represented, broken down by demographics or 'other' category*
-
-
-----
-
-### **Exploratory Questions and Hypothesis Testing**
-
-<br>
-
-#### **5 Year Return on Investment**
-<br>
-
-**Is there a statistically significant difference among the following examined variables and their potential impact on ROI?**
-
-* Undergraduate college majors
-* College share of first-time, full-time entering students
-* Public/private/foreign controlled institutions
-* Average university faculty salary
-* Full-time student tuition revenue
-* College US geographical regions
-* College admission rates
-
-<br>
-
-#### **Creating and Modeling Clusters**
-
-<br>
-
-1. Is there a statistically significant difference in the share of first-time, full-time entering college students and faculty salaries?
-
-2. Is there a statistically significant difference across college admission rate levels and students with family income bracket 48-75K? 
-
-3. Is there a statistically significant difference in undergraduate majors and university share of part-time students?
-
-4. Is there a statistically significant difference between the levels of admitted SAT scores and the number of undergraduate students with federal pell-grants and loans?
-
-5. Is there a statistically significant difference across US geographical regions and institution full-time tuition revenue?
-
-6. Is there a statistically significant difference between among the institution control types and college admission rates?
-
------
-
-### **Cluster Modeling**
-
-<br>
-
-**<u>Tested Linear Algorithms w/Principal Component Dimensionality Reduction</u>**
-
-* Linear Regression (OLS)
-* Lasso Lars (Least Angle Regression)
-* Tweedie Regression (Generalized Linear Model)
-
-
-#### **<u>Model Evaluation on RMSE</u>**
-
-<br>
-
-| Model     | Train     | Validate     |
-|----       |----       |----          |
-| OLS w/PCA | 0.39      | 0.39         |
-| GLM w/PCA | 0.39      | 0.40         |
-| LassoLars w/PCA | 0.41 | 0.41        |
-
-
-
-<u>**``Performance of OLS Linear Regression w/PCA Through Test Dataset``**</u>
-
-| PCA OLS Model | RMSE          |Relative % Difference  |
-|----           |----           |----                   |
-| Baseline      | 0.41          | -                     |
-| Train         | 0.39          | 0.05                  |
-| Validate      | 0.39          | 0.0                   |
-| Test (final)  | 0.39          | 0.0                   |
-
-----
-
-### **Recommendations & Next Steps**
-
 
 
 ----
