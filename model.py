@@ -313,3 +313,21 @@ def plot_models(melt_df):
         plt.ylabel('Predicted 5YR Return on Investment')
         plt.title('Actual 5YR Return on Investment vs Predicted Cluster 5YR Return on Investment')
         plt.show()
+
+def model_distributions(df):
+    '''Function that plots distribution of model predictions'''
+
+    plt.figure(figsize=(16,8))
+
+    plt.hist(df['roi_5yr'], color='lightgray', alpha=0.5, label='Actual 5YR ROI')
+
+    plt.hist(df['linear_predictions'], color = 'red', alpha=0.5, label='Linear Regression w/PCA')
+
+    plt.hist(df['lars_predictions'], color = 'tab:olive', alpha=0.5, label='LassoLars w/PCA')
+
+    plt.hist(df['tweedie_predictions'], color = 'purple', alpha=0.5, label='Tweedie Regressor w/PCA')
+
+    plt.xlabel('5YR ROI')
+    plt.ylabel('Distribution')
+    plt.title('Distribution of 5YR ROI by Predictive Model')
+    plt.legend()

@@ -160,7 +160,7 @@ We explore how potential variables within the data produce certain return on inv
 
 1. Is there a statistically significant difference in the share of first-time, full-time entering college students and faculty salaries?
 
-2. Is there a statistically significant difference across college admission rate levels and students with family income bracket 48-75K? 
+2. Is there a statistically significant difference across college admission rate levels and students with family income bracket $48-75K? 
 
 3. Is there a statistically significant difference in undergraduate majors and university share of part-time students?
 
@@ -180,28 +180,28 @@ When undergraduate majors like Archeology, Geology, and Forestry are grouped int
 * **Admissions Rate Cluster**
 College admission rates are often seen as an indicator of their academic competitiveness and the number of applications it may receive and ultimately the applicants they select. We thought that these rates could make for an interesting variable when classified among a spectrum from "above-average-acceptance" to "very-competitive."
 
-Additionally, when tested against colleges' student population with median family incomes of 48-75K in 2019, we identified that there were statistical differences among these groups. 
+Additionally, when tested against colleges' student population with median family incomes of $48-75K in 2019, we identified that there were statistical differences among these groups. 
 
 * **Institution Control Cluster**
-This cluster involved pairing the control of an institution meaning whether the college was a profit, public, or foreign college and their respective admission rates. 
+This cluster involved pairing institution admission rates and the control of an institution meaning whether they are a private, public, or foreign college.
 
 The K-means algorithm returned the greatest cluster coefficient score at three distinguishing clusters. We believe this was consistent with the imbalance of observations among the four institution control types. We felt that while initially exploring this cluster, the unsupervised K-means algorithm also did a great job at visually predicting and labeling actual observations.
 
 * **College Region Cluster**
-We wanted to measure if geographical differences could help us in determining future student 5-year ROI. Across 8 continental US regions and 1 foreign territory region, we found that there was also distinct difference among these region's fill-time tuition revenue. When paired together this made-up our college region cluster which we introduced in modeling.
+We wanted to measure if geographical differences could help us in determining future student 5-year ROI. Across 8 continental US regions and 1 foreign territory region, we found that there was also distinct difference among these region's full-time tuition revenue. When paired together this made-up our college region cluster which we introduced in modeling.
 
 * **First-time Student Cluster**
-The basis of the first-time student cluster comes from a national college average of first-time, full-time entering students. We binned unique university percentage of their first-time, full-time entering students based on where they fell on this national average. These classifications ranged from "below average" to "highest average." 
+The basis of the first-time student cluster comes from a national college average of first-time, full-time entering students. We binned colleges into distinct buckets based on where they fell on a feature engineered spectrum of first-time, full-time entering students based on a national average. These new classifications ranged from "below average" to "highest average." 
 
-To introduce another unique and statistically significant ROI variable, we looked at this classification in relation to university average faculty salaries which also proved statistically significant. 
+To introduce another unique and statistically significant ROI variable, we looked at these classifications in relation to universities average faculty salaries.
 
 * **SAT Score Clusters**
 
 Like college admission rates, SAT scores required by colleges can span a relative spectrum. For this variable, we used the national average SAT score of ~1050 for US colleges to create distinct classifications. These classes varied by either "average", "above average", "competitive", or "very competitive" and were generated based on a minimum and maximum score found in the dataset.
 
-We measured these variables in relation to colleges' student population with federal pell grants and/or loans. The results of our findings proved that the population size of these students across colleges were statistically different across college's required SAT score.
+We measured these variables in relation to colleges' student population with federal loans and/or pell grants. The results of our findings proved that the population size of these students across colleges were statistically different across college's required SAT score.
 
-It's important to also note that on average - universities that required "very competitive" SAT scores also had the highest population of students with either federal pell grants and/or loans. We believe that a future iteration of this study warrants further analysis of this finding and what, if any additional implications there may be for attending a college that requires a relatively competitive SAT score.
+It's important to also note that on average - universities that required "very competitive" SAT scores also had the highest population of students with either federal loans and/or pell grants. We believe that a future iteration of this study warrants further analysis of this finding and what, if any, additional implications there may be for attending a college that requires a relatively competitive SAT score.
 
 -----
 
