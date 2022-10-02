@@ -250,3 +250,79 @@ def get_bach_df():
         # return the dataframe
         return bach_df
 
+
+def plot_target_distributions(train_df):
+    '''Function that plots the ROI distribution across 5-, 10-, and 20-year periods'''
+
+    plt.subplots(nrows = 1, ncols = 2, figsize = (12, 6))
+
+    plt.subplot(131)
+    plt.title("5YR ROI Distribution")
+    plt.hist(train_df["roi_5yr"], bins = 50)
+
+    plt.subplot(132)
+    plt.title("10YR ROI Distribution")
+    plt.hist(train_df["roi_10yr"], bins = 50)
+
+    plt.subplot(133)
+    plt.title("20YR ROI Distribution")
+    plt.hist(train_df["roi_20yr"], bins = 50)
+
+    plt.show()
+
+
+def plot_majors_count(train_df):
+    '''Function to plot the total count of undergraduate degrees by major category'''
+
+    plt.figure(figsize=(20,10))
+    sns.countplot(
+            y = 'major_category', 
+            data = train_df, 
+            order = train_df['major_category'].value_counts().index,
+            palette = "crest_r")
+
+    plt.title("Count of Undergraduate Majors")
+    plt.ylabel(None)
+    plt.xlabel("Count")
+
+    plt.show()
+
+
+def plot_institution_control(train_df):
+    '''Function that manually visualizes the percentage of 
+    institution control across the dataset'''
+
+    # Pie chart
+    plt.figure(figsize=(4, 4))
+    sns.set(font_scale = 0.5)
+
+    labels = train_df["institution_control"].value_counts().index.tolist()
+    sizes = (train_df["institution_control"].value_counts(normalize = True).values.round(2) * 100).tolist()
+
+    #colors
+    colors = ['#fbb4ae','#b3cde3','#decbe4', '#ccebc5']
+
+    #explsion
+    explode = (0.05,0.05,0.05,0.05)
+
+    plt.pie(
+        sizes, 
+        colors = colors, 
+        labels = labels, 
+        autopct = '%1.0f%%', 
+        startangle = 90, 
+        pctdistance = 0.85, 
+        explode = explode)
+
+    #draw circle
+    centre_circle = plt.Circle((0,0), 0.70, fc='white')
+
+    fig = plt.gcf()
+
+    fig.gca().add_artist(centre_circle)
+
+    # Equal aspect ratio ensures that pie is drawn as a circle
+    plt.axis('equal')
+
+    plt.tight_layout()
+    plt.show()
