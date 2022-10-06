@@ -239,10 +239,9 @@ It's important to also note that on average - universities that required "very c
 
 ----
 
-### **Recommendations & Next Steps**
+### **Recommendations**
 
 <br>
-
 We strongly encourage any potential stakeholders who engage with our project to balance our specific finance-related findings within the greater envelope of factors that go into deciding on a college major and specific college. 
 Many factors should be included in such a major decision including lifestyle choices, personal interests, passions and aptitudes, desired professional environment, the current economy and job market, and more.
 Moreover, we recognize that college is not necessarily the best choice for everyone. The trades and other labor opportunities exist which don't require a college degree and can serve as viable alternatives to our project's focus.
@@ -258,10 +257,9 @@ This tool holds a wealth of information by major category and allows students to
 
 **Whitepaper** <br>
 The Whitepaper is a professional snapshot of our whole project and its main emphasis and results. It includes visuals that aid in understanding project scope and key takeaways from our analysis. This document serves stakeholders as a high-level overview for those who don't have time to delve deep into our Final Report and thorough analysis.
-
 <br> 
 
-##### Next Steps
+### **Next Steps**
 
 Despite the overall effectiveness of our best-performing model, there is always room for improvement and optimization.
 If given more time to pursue better results, we would begin by conducting further exploration and analysis of other features within our dataset. These features could include:
