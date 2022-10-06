@@ -240,7 +240,6 @@ It's important to also note that on average - universities that required "very c
 ----
 
 ### **Recommendations**
-
 <br>
 We strongly encourage any potential stakeholders who engage with our project to balance our specific finance-related findings within the greater envelope of factors that go into deciding on a college major and specific college. 
 Many factors should be included in such a major decision including lifestyle choices, personal interests, passions and aptitudes, desired professional environment, the current economy and job market, and more.
