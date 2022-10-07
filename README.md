@@ -29,11 +29,12 @@ October 2022
 * [Exploratory Questions](#exploratory-questions)
   * [5 Year Return on Investment](#5-year-return-on-investment)
   * [Creating and Modeling Clusters](#creating-and-modeling-clusters)
-* [Clusters]
+* [Clusters](#clusters)
 * [Modeling](#modeling)
-* [Recommendations & Next Steps](#recommendations--next-steps)
+* [Recommendations & Next Steps](#recommendations-next-steps)
 * [Data Dictionary](#data-dictionary)
-* [Project Delivery](https://www.canva.com/design/DAFLfrYbwyA/8DMEYjMXzZQ65GgmgiGtrQ/view?utm_content=DAFLfrYbwyA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+* [Project Delivery](#project-delivery)
+
 ----
 ### **Project Description**
 
@@ -72,31 +73,33 @@ We explore how potential variables within the data produce certain return on inv
 
 <br>
 
-1. We first acquire and merge the US Department of Education College data with the University of Minnesota IPUM Earnings data.
+1. Acquired and merged the US Department of Education College data with the University of Minnesota IPUM Earnings data.
 
-2. We then filter the initial dataset for solely Bachelor degree records and create a new table for easier data cleaning and preparation. 
+2. Filtered the initial dataset for solely Bachelor degree records and create a new table for easier data cleaning and preparation. 
 
-3. After calculating and creating the cost-to-earnings ratio/ROI, we assign this variable to all Bachelor degree records. 
+3. Calculated and created the cost-to-earnings ratio/ROI; assigned this variable to all Bachelor degree records. 
 
-4. We then perform the following data cleaning processes on the Bachelor degree data: clean variable names for easier readability, expand on the geographical location variable and map this to all college records, we drop redundant columns in the dataset that captured the same information. 
+4. Performed the following data cleaning processes on the Bachelor degree data: cleaned variable names for easier readability, expanded on the geographical location variable and mapped this to all college records, we then dropped redundant columns in the dataset that captured the same information. 
 
-5. We then study and treat outliers in the dataset. We use a winsorization method to cap outliers at their respective 10th and 90th percentiles.
+5. Analyzed and treated outliers in the dataset. Applied a winsorization method to cap outliers at their respective 10th and 90th percentiles.
 
-6. We train and apply an Scikit-learn Iterative Imputer to impute remaining null values in the dataset.
+6. Trained and applied an Scikit-learn Iterative Imputer to impute remaining null values in the dataset.
 
-7. We conduct exploratory analysis and statistical testing on the college variables and choose only statistically significant features to move forward into clustering and modeling.
+7. Conducted exploratory analysis and statistical testing on the college variables and choose only statistically significant features to move forward into clustering and modeling.
 
-8. We select unique variables to cluster on and conduct statistical testing to measure and determine their relationship.
+8. Selected unique variables to cluster on and conducted statistical testing to measure and determine their combined variable relationship.
 
-9. We then model and visually measure cluster predictions from actual observations.
+9. Modeled and measured cluster predictions from actual observations.
 
-10. In model-stacking, we use a Scikit-learn recursive feature elimination with cross-validation to determine most significant variables to model and predict the target variable.
+10. In model-stacking, we use a Scikit-learn recursive feature elimination with cross-validation to determine most significant variables for predicting the target variable.
 
-11. Using a principal component analysis method to transform our datasets, we then generate three (3) linear models and measure their results against the train and validate datasets.
+11. Used a principal component analysis method to transform our datasets.
 
-12. After evaluating results, we deploy our best performing PCA-OLS model on the final out-of-sample dataset. 
+12. Tested three (3) linear algorithms with non-linear PCA transformations and measured their results against the train and validate datasets.
 
-13. Finally, we analyze our findings and provide recommendations for future analysis and actionable steps.
+13. Evaluated results and deployed our best performing PCA-OLS model on the final out-of-sample dataset. 
+
+14. Finally, we analyzed our model results and findings and provide recommendations for future analysis and actionable steps.
 
 ----
 
@@ -174,33 +177,38 @@ We explore how potential variables within the data produce certain return on inv
 
 #### **Clusters**
 
-* **College Major Cluster**
+* **College Major Cluster** \
+\
 When undergraduate majors like Archeology, Geology, and Forestry are grouped into higher major classifications like "Environment and Natural Resources" we find there are statistical differences across these majors share of part-time students. When we combine these unique major variables with university share of part-time students, the K-means algorithm can accurately capture these variables with some degree of accuracy.    
 
-* **Admissions Rate Cluster**
-College admission rates are often seen as an indicator of their academic competitiveness and the number of applications it may receive and ultimately the applicants they select. We thought that these rates could make for an interesting variable when classified among a spectrum from "above-average-acceptance" to "very-competitive."
-
+* **Admissions Rate Cluster** \
+\
+College admission rates are often seen as an indicator of their academic competitiveness and the number of applications it may receive and ultimately the applicants they select. We thought that these rates could make for an interesting variable when classified among a spectrum from "above-average-acceptance" to "very-competitive." \
+\
 Additionally, when tested against colleges' student population with median family incomes of $48-75K in 2019, we identified that there were statistical differences among these groups. 
 
-* **Institution Control Cluster**
-This cluster involved pairing institution admission rates and the control of an institution meaning whether they are a private, public, or foreign college.
-
+* **Institution Control Cluster** \
+\
+This cluster involved pairing institution admission rates and the control of an institution meaning whether they are a private, public, or foreign college. \
+\
 The K-means algorithm returned the greatest cluster coefficient score at three distinguishing clusters. We believe this was consistent with the imbalance of observations among the four institution control types. We felt that while initially exploring this cluster, the unsupervised K-means algorithm also did a great job at visually predicting and labeling actual observations.
 
-* **College Region Cluster**
+* **College Region Cluster**\
+\
 We wanted to measure if geographical differences could help us in determining future student 5-year ROI. Across 8 continental US regions and 1 foreign territory region, we found that there was also distinct difference among these region's full-time tuition revenue. When paired together this made-up our college region cluster which we introduced in modeling.
 
-* **First-time Student Cluster**
-The basis of the first-time student cluster comes from a national college average of first-time, full-time entering students. We binned colleges into distinct buckets based on where they fell on a feature engineered spectrum of first-time, full-time entering students based on a national average. These new classifications ranged from "below average" to "highest average." 
-
+* **First-time Student Cluster** \
+\
+The basis of the first-time student cluster comes from a national college average of first-time, full-time entering students. We binned colleges into distinct buckets based on where they fell on a feature engineered spectrum of first-time, full-time entering students based on a national average. These new classifications ranged from "below average" to "highest average." \
+\
 To introduce another unique and statistically significant ROI variable, we looked at these classifications in relation to universities average faculty salaries.
 
-* **SAT Score Clusters**
-
-Like college admission rates, SAT scores required by colleges can span a relative spectrum. For this variable, we used the national average SAT score of ~1050 for US colleges to create distinct classifications. These classes varied by either "average", "above average", "competitive", or "very competitive" and were generated based on a minimum and maximum score found in the dataset.
-
-We measured these variables in relation to colleges' student population with federal loans and/or pell grants. The results of our findings proved that the population size of these students across colleges were statistically different across college's required SAT score.
-
+* **SAT Score Clusters** \
+\
+Like college admission rates, SAT scores required by colleges can span a relative spectrum. For this variable, we used the national average SAT score of ~1050 for US colleges to create distinct classifications. These classes varied by either "average", "above average", "competitive", or "very competitive" and were generated based on a minimum and maximum score found in the dataset. \
+\
+We measured these variables in relation to colleges' student population with federal loans and/or pell grants. The results of our findings proved that the population size of these students across colleges were statistically different across college's required SAT score. \
+\
 It's important to also note that on average - universities that required "very competitive" SAT scores also had the highest population of students with either federal loans and/or pell grants. We believe that a future iteration of this study warrants further analysis of this finding and what, if any, additional implications there may be for attending a college that requires a relatively competitive SAT score.
 
 -----
@@ -305,4 +313,7 @@ It's important to also note that on average - universities that required "very c
 ----
 
 ### **Project Delivery**
-[Presentation]()
+
+[Presentation: Return on Investment - US College Majors](https://www.canva.com/design/DAFMrth7BRc/tFF8QC2w2Ob0B0N0GgnMSQ/view?utm_content=DAFMrth7BRc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+[White Paper: "Return on Investment - Analyzing U.S. College Undergraduate Majors"](https://www.canva.com/design/DAFNh1WKWbQ/LxKRaf6aVvW7IMCdi-Uflw/view?utm_content=DAFNh1WKWbQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
