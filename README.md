@@ -314,6 +314,6 @@ It's important to also note that on average - universities that required "very c
 
 ### **Project Delivery**
 
-[Presentation: Return on Investment - US College Majors](https://www.canva.com/design/DAFMrth7BRc/tFF8QC2w2Ob0B0N0GgnMSQ/view?utm_content=DAFMrth7BRc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton){:target="_blank" rel="noopener"}
+[Presentation: Return on Investment - US College Majors](https://www.canva.com/design/DAFMrth7BRc/tFF8QC2w2Ob0B0N0GgnMSQ/view?utm_content=DAFMrth7BRc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 [White Paper: "Return on Investment - Analyzing U.S. College Undergraduate Majors"](https://www.canva.com/design/DAFNh1WKWbQ/LxKRaf6aVvW7IMCdi-Uflw/view?utm_content=DAFNh1WKWbQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
